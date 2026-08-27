@@ -1,0 +1,231 @@
+{% load static %}
+
+
+<!doctype html>
+<html>
+<head>
+<title>Living Quarters</title>
+<style>
+table,tr,td,col{
+border: 0px solid black; border-style:dotted"}
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box;}
+body {font-family:Verdana, sans-serif;}
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  font-size: 17px;
+}
+
+.container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.container img {vertical-align: middle;}
+
+.container .content {
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
+</style>
+</head>
+<style>
+img {
+  border: 10px solid black;
+}
+
+/*button */
+.my-button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      border: 2px solid #000000;
+      border-radius: 5px;
+      color: #fcfeff;
+      background-color: #040000;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    /* Change the button style on hover */
+    .my-button:hover {
+      background-color: #00060a;
+      color: #faf8f8;
+</style>
+<body>
+<style>
+body {
+  background-image: url('/static/img/b6.jpg');
+}
+</style>
+<body style="background-color:black;color:white;">
+<center><table>
+<tr>
+<td><center><p style="background-color:;color:#0e022b;font-family:Brush Script MT;font-size:72px;"><b><u><i>DREAMLAND RESORTS </td>
+<td><a href="{% url 'home' %}"><img src="{%static 'img/icon.png' %}"width="150" height="150"></a></p></b></u></i></center></p></td>
+</tr>
+</table></center>
+
+<center><p style="background-color:;color:#0e022b;font-family:Brush Script MT;font-size:52px;"><b><u><i>LIVING QUARTERS </p></b></u></i></center></p>
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <div class="container">
+  <img src="{%static 'img/l1.jpg' %}"width="1100" height="500">
+  <div class="content">
+<h style="font-size:55px;color:white;font-family:Brush Script MT;"><b>"Be Embraced, By a Luxurious Asylum!!.." </div>
+</div></div></b>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+  <div class="container">
+ <img src="{%static 'img/l2.jpg' %}"width="1100" height="500">
+ <div class="content">
+  <h style="font-size:55px;color:white;font-family:Brush Script MT;"><b>"Be Embraced, By a Luxurious Asylum!!.."</div></b>
+</div></div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3/ 3</div>
+  <div class="container">
+<img src="{%static 'img/l3.jpg' %}"width="1100" height="500">
+<div class="content">
+  <h style="font-size:55px;color:white;font-family:Brush Script MT;"><b>"Be Embraced, By a Luxurious Asylum!!.."</div></b>
+</div></div>
+
+
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+</div>
+
+<script>
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+</script>
+<center><h style="font-size:38px;color:black;font-family:Brush Script MT;">"Be Embraced, By a Luxurious Asylum!!.."<br>Dreamland Resort offers spacious and comfortable accommodation amidst a natural landscape. The resort welcomes guests with beautifully appointed guestrooms, the 4 different room types are designed with the needs of different travellers in mind. Each room comes with an attached sit out with a view to the gardens or pool so guests can enjoy the lush, natural surroundings.</h></center><br><br>
+<center><h style="font-size:38px;color:black;font-family:Garamond;"><u><b>Rooms and suites</u></b></h>
+<table>
+<tr>
+
+<td><img src="{%static 'img/l4.jpg' %}"width="450"height="350px"></td>
+<td><img src="{%static 'img/l5.jpg' %}"width="450"height="350px"></td>
+<td><img src="{%static 'img/l6.jpg' %}"width="450"height="350px"></td>
+</tr>
+<tr>
+<td><p style="font-size:35px;color:black;font-family:Brush Script MT;"><b><u>Pool Suite</b></u><br>
+Our Signature room offering a private outdoor space and a 100sqft plunge pool.The pool suite is sure to leave you spell bound!</td><p>
+<td><p style="font-size:35px;color:black;font-family:Brush Script MT;"><b><u>Family Rooms</b></u><br>
+The spacious rooms comprise of two large bedrooms with 2 attached toilets - ideal for a family or a group of friends between 4-6pax.</td><p>
+<td><p style="font-size:35px;color:black;font-family:Brush Script MT;"><b><u>Executive Rooms</b></u><br>
+
+Well appointed rooms overlooking a majestic fig tree, ideal for travellers on a budget or ones looking for a quick getaway from the city!
+</td><p>
+</table>
+<center><a href="roombooking.html" class="my-button">Book Now</a></center>
+<marquee><h style="font-size:30px;color:black;font-family:times new roman;"><b><i>DONE BY:<br>KEERTHI VT(IJB21IS053)<br>KRUTHIK BV(IJB21IS054) <br>KULDEEP SINGH S(IJB21IS055)</b></i></h></marquee>
+
+</body>
+</html> 
+

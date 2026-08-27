@@ -1,0 +1,230 @@
+{% load static %}
+
+
+<!doctype html>
+<html>
+<head>
+<title>CONVENTIONS</title>
+<style>
+table,tr,td,col{
+border: 0px solid black; border-style:dotted"}
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box;}
+body {font-family:Verdana, sans-serif;}
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  font-size: 17px;
+}
+
+.container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.container img {vertical-align: middle;}
+
+.container .content {
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
+</style>
+</head>
+<style>
+img {
+  border: 10px solid black;
+}
+</style>
+<body>
+<style>
+
+  /*button */
+  .my-button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      border: 2px solid #000000;
+      border-radius: 5px;
+      color: #fcfeff;
+      background-color: #040000;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    /* Change the button style on hover */
+    .my-button:hover {
+      background-color: #00060a;
+      color: #faf8f8;
+    }
+body {
+  background-image: url('/static/img/b6.jpg');
+}
+</style>
+<body style="background-color:black;color:white;">
+<center><table>
+<tr>
+<td><center><p style="color:#0e022b;font-family:Brush Script MT;font-size:72px;"><b><u><i>DREAMLAND RESORTS </td>
+<td><a href="{% url 'home' %}"><img src="{%static 'img/icon.png' %}"width="150" height="150"></a></p></b></u></i></center></p></td>
+</tr>
+</table></center>
+
+
+<center><p style="color:#0e022b;font-family:Brush Script MT;font-size:52px;"><b><u><i>CONVENTIONS </p></b></u></i></center></p>
+<div class="slideshow-container">
+
+
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <div class="container">
+<img src="{%static 'img/c2.jpg'%}"width="1100" height="500">
+  <div class="content">
+  <h style="font-size:65px;color:white;font-family:Brush Script MT;"><b>''Together is a beautiful place to be!!!...''</div></b>
+</div></div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+  <div class="container">
+<img src="{%static 'img/c11.jpg'%}"width="1100" height="500">
+<div class="content">
+  <h style="font-size:65px;color:white;font-family:Brush Script MT;"><b>''Together is a beautiful place to be!!!...''</div></b>
+</div></div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+  <div class="container">
+<img src="{%static 'img/c4.jpg'%}"width="1100" height="500">
+<div class="content">
+<h style="font-size:65px;color:white;font-family:Brush Script MT;"><b>''Together is a beautiful place to be!!!...''</div></b>
+</div></div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+</div>
+
+<script>
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+</script>
+<center><h style="font-size:38px;color:black;font-family:Brush Script MT;">''Together is a beautiful place to be!!!...''<br>We know how important it is to make your dream wedding a reality, whether its a grand ceremony or an intimate one, we’ll go the extra mile to host a beautiful and memorable event for you and your guests.</h></center><br><br>
+<center><h style="font-size:38px;color:black;font-family:Garamond;"><u><b>OUR VENUES</u></b></h>
+<table>
+<tr>
+
+<td><img src="{%static 'img/c3.jpg'%}"width="450"height="350px"></td>
+<td><img src="{%static 'img/c6.jpg'%}"width="450"height="350px"></td>
+<td><img src="{%static 'img/c8.jfif'%}"width="450"height="350px"></td>
+</tr>
+<tr>
+<td><p style="font-size:35px;color:black;font-family:Brush Script MT;"><b><u>The Raintree Lawns</b></u><br>
+A 50,000 sqft Lush Green outdoor poolside venue with a capacity of 700 pax - ideal for weddings and corporate events.</td><p>
+<td><p style="font-size:35px;color:black;font-family:Brush Script MT;"><b><u>Aqualounge Banquets</b></u><br>
+A 6000 sqft indoor-outdoor venue - a covered pavilion with an attached lawn ideal for a birthday celebration or family get-together. The capacity of this venue is 125 pax.</td><p>
+<td><p style="font-size:35px;color:black;font-family:Brush Script MT;"><b><u>Convention Hall</b></u><br>
+A 7000 sqft pillarless venue, covered on the top and open on the sides to get a view of the lawns and enjoy bangalore’s perfect weather. The capacity of this venue is 500 pax.</td><p>
+</table>
+<center><a href="venue.html" class="my-button">Book Now</a></center>
+
+<marquee><h style="font-size:30px;color:black;font-family:times new roman;"><b><i>DONE BY:<br>KEERTHI VT(IJB21IS053)<br>KRUTHIK BV(IJB21IS054) <br>KULDEEP SINGH S(IJB21IS055)</b></i></h></marquee>
+</body>
+</html> 
+

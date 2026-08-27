@@ -1,0 +1,9 @@
+<!doctype html>
+<html>
+<head>
+<title>deepu</title>
+</head>
+<body>
+<img src="k1.jfif"width="100%">
+</body>
+</html>

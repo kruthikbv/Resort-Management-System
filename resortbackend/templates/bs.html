@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Success</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            background-image: url('/static/img/b6.jpg');
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #080908;
+        }
+
+        p {
+            color: #777;
+        }
+
+        .icon {
+            font-size: 50px;
+            color: #000000;
+        }
+
+        .home-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #030403;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .home-link:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="icon">&#10004;</div>
+    <h2>Booking Successful!</h2>
+    <p>Booking is successfully completed.</p>
+    <a href="{% url 'home' %}" class="home-link">Go to Homepage</a>
+</div>
+
+</body>
+</html>

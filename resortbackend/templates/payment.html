@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            background-image: url('/static/img/b6.jpg');
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+        
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: grid;
+            grid-gap: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .card-info, .upi-info {
+            display: none;
+            grid-gap: 20px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Payment Details</h2>
+    <form>
+        <label for="payment-method">Select Payment Method:</label>
+        <select id="payment-method" name="payment-method" onchange="togglePaymentFields()" required>
+            <option value="card">Credit/Debit Card</option>
+            <option value="upi">UPI</option>
+        </select>
+
+        <div class="card-info">
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" name="card-number" placeholder="**** **** **** ****" required>
+
+            <label for="card-name">Cardholder Name:</label>
+            <input type="text" id="card-name" name="card-name" required>
+
+            <label for="expiry-date">Expiry Date:</label>
+            <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" required>
+
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" placeholder="***" required>
+        </div>
+
+        <div class="upi-info">
+            <label for="upi-id">UPI ID:</label>
+            <input type="text" id="upi-id" name="upi-id" placeholder="example@upi" required>
+        </div>
+<button type="submit"><a href="{% url 'bs' %}" class="button" style="text-decoration: none; color: rgb(245, 239, 239);">Pay Now</button></a>
+        
+    </form>
+</div>
+
+<script>
+    function togglePaymentFields() {
+        var paymentMethod = document.getElementById('payment-method').value;
+        var cardInfo = document.querySelector('.card-info');
+        var upiInfo = document.querySelector('.upi-info');
+
+        if (paymentMethod === 'card') {
+            cardInfo.style.display = 'grid';
+            upiInfo.style.display = 'none';
+        } else if (paymentMethod === 'upi') {
+            cardInfo.style.display = 'none';
+            upiInfo.style.display = 'grid';
+        }
+    }
+</script>
+
+</body>
+</html>

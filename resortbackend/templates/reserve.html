@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Reservation</title>
+    <style>
+        body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-image: url('/static/img/b6.jpg');
+}
+
+form {
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+select,
+input[type="datetime-local"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+}
+
+textarea {
+    height: 100px;
+}
+
+button {
+    background-color: #121212;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #070006;
+}
+
+/* Media queries for responsiveness */
+
+@media only screen and (max-width: 600px) {
+    form {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input[type="text"],
+    select,
+    input[type="datetime-local"],
+    textarea {
+        font-size: 14px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <form action="" method="POST"> <!--INSIDE ACTION IT WAS # KBV AND NO METHOD-->
+        <!--ADD CSRF TOKEN KBV-->
+        {% csrf_token %}
+
+
+        <h2><b><u>RESERVE YOUR TABLE</u></b></h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name">
+        <label for="name">Contact :</label>
+        <input type="text" id="Contact " name="contact" placeholder="Enter your Contact">
+        <label for="name">Email-id:</label>
+        <input type="text" id="email" name="email" placeholder="Enter your email-id"> <!--name WAS CHANGED TO emailid-->
+    
+        <label for="Venue">Venue:</label>
+        <select id="Venue" name="Venue">
+            <option value="Select">Select</option>
+            <option value="The Raintree Lawns">Royal Crest Restaurant</option>
+            <option value="Aqualounge Banquets">Pink Door Cafe</option>
+            <option value="Convention Hall">Blue Moon Brew</option>
+            
+                </select>
+
+        <label for="nooftables">No of Tables:</label>
+        <input type="text" id="nooftables" name="nooftables" placeholder="Enter no of tables to be reserved"><!--name was changed to nooftables kbv-->
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="time">Time:</label>
+        <input type="text" id="time" name="time" required>
+
+        
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" placeholder="Write your message"></textarea>
+        
+        <a href="{% url 'bs' %}"  style="text-decoration: none; color: rgb(245, 239, 239);"><button type="submit">Submit</button></a>
+    </form>
+</body>
+</html>

@@ -1,0 +1,114 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venue Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            background-image: url('/static/img/b6.jpg');
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        section {
+            margin: 20px;
+        }
+
+        .booking-form {
+            max-width: 400px;
+            margin: 0 auto;
+            
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .booking-form label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .booking-form input,
+        .booking-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        .booking-form button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .booking-form button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <section>
+        <div class="booking-form">
+            <h2><b><u>BOOK YOUR PERFECT VENUE</u></b></h2>
+            <form action="" method="POST">  <!--ACTION AND METH -->
+            <!--ADD CSRF TOKEN -->
+            {% csrf_token %}
+
+            
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Enter your name" name="name" required>
+
+            
+            <label for="contact">Contact</label>
+            <input type="text" id="contact" placeholder="Enter your contact number" name="contact" required>
+
+            <label for="email">Email</label>
+            <input type="text" id="email" placeholder="Enter your email" name="email" required>
+
+            <label for="venue">Select Venue</label>
+            <select id="venue">
+                <option value="venue1">The Raintree Lawns</option>
+                <option value="venue2">Aqualounge Banquets</option>
+                <option value="venue3">Convention Hall</option>
+                <option value="venue4">Amusement World</option>
+                <option value="venue4">Indoor-Outdoor Games</option>
+                <option value="venue4">Treks</option>
+                
+
+
+                <!-- Add more venue options as needed -->
+            </select>
+
+            <label for="checkindate">Check-in Date:</label>
+            <input type="date" id="checkindate" name="checkindate" required>
+
+
+            
+            <label for="checkoutdate">Check-out Date:</label>
+            <input type="date" id="checkoutdate" name="checkoutdate" required>
+
+        
+<!--
+            <button type="submit"><a href="{% url 'bs' %}" style="text-decoration: none; color: rgb(245, 239, 239);">Book your Venue</button></a>-->
+            <a href="{% url 'bs' %}"  style="text-decoration: none; color: rgb(245, 239, 239);"><button type="submit">Book venue</button></a>
+        </div>
+    </section>
+
+</body>
+</html>

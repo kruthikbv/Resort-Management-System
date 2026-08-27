@@ -1,0 +1,171 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Booking </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            background-image: url('/static/img/b6.jpg');
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: grid;
+            grid-gap: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            resize: vertical;
+        }
+
+        .checkbox-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .price-info {
+            font-size: 14px;
+            color: #777;
+            margin-top: -10px;
+        }
+
+        button {
+            background-color: #000000;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #030303;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2><b><u>BOOK YOUR LUXURY SUITE </u></b></h2>
+    <form oninput="calculateTotal()" action="" method="POST"> 
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label for="checkindate">Check-in Date:</label>
+        <input type="date" id="checkindate" name="checkindate" required>
+
+        <label for="checkintime">Check-in Time:</label>
+        <input type="text" id="checkintime" name="checkintime" required>
+
+        
+        <label for="checkoutdate">Check-out Date:</label>
+        <input type="date" id="checkoutdate" name="checkoutdate" required>
+
+        <label for="checkouttime">Check-out Time:</label>
+        <input type="text" id="checkouttime" name="checkouttime" required>
+
+        
+        <label for="roomtype">Room Type:</label>
+        <select id="roomtype" name="roomtype" required onchange="calculateTotal()">
+            <option value="Executive Rooms">Executive Rooms (8500 INR) </option>
+            <option value="Family Rooms">Family Rooms(10500 INR) </option>
+            <option value="Pool Suite"> Pool Suite (11500 INR)</option>
+        </select>
+                    
+    
+    
+        <a href="{% url 'bs' %}"  style="text-decoration: none; color: rgb(245, 239, 239);"><button type="submit">Book Room</button></a>
+        
+    </form>
+</div>
+
+<script>
+    function calculateTotal() {
+        var roomType = document.getElementById('roomtype').value;
+        var numberofRooms = document.getElementById('numberofrooms').value;
+        var breakfastIncluded = document.getElementById('breakfast').checked;
+        var lunchIncluded = document.getElementById('lunch').checked;
+        var dinnerIncluded = document.getElementById('dinner').checked;
+        var wifiIncluded = document.getElementById('wifi').checked;
+
+        var pricePerNight = 0;
+
+        switch (roomType) {
+            case 'standard':
+                pricePerNight = 8500;
+                break;
+            case 'deluxe':
+                pricePerNight = 10500;
+                break;
+            case 'suite':
+                pricePerNight = 11500;
+                break;
+        }
+
+        var totalPrice = pricePerNight * numberofRooms;
+
+        // Additional feature prices
+        if (breakfastIncluded) {
+            totalPrice += 500 * numberofRooms; // Assuming $10 per room for breakfast
+        }
+
+        if (lunchIncluded) {
+            totalPrice += 500 * numberofRooms; // Assuming $15 per room for lunch
+        }
+
+        if (dinnerIncluded) {
+            totalPrice += 500 * numberofRooms; // Assuming $20 per room for dinner
+        }
+
+        if (wifiIncluded) {
+            totalPrice += 200 * numberofRooms; // Assuming $5 per room for Wi-Fi
+        }
+
+        document.getElementById('total-price').textContent = totalPrice;
+    }
+</script>
+
+</body>
+</html>
